@@ -11,12 +11,14 @@ namespace Projet
         public string Title { get; set; }
         public EGenre Genre { get; set; }
         public string Artist { get; set; }
+        public int Views { get; set; }
 
-        public Music(string title, EGenre genre, string artist)
+        public Music(string title, EGenre genre, string artist, int views)
         {
             this.Title = title;
             this.Genre = genre;
             this.Artist = artist;
+            this.Views = views;
         }
     }
 }

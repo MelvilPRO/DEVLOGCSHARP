@@ -31,14 +31,14 @@ namespace Projet
             */
 
             Database DB = new Database();
-            DB.Musics.Add(new Music("Bidule", EGenre.Rap, "Artist"));
-            DB.Musics.Add(new Music("Thomasy", EGenre.Rock, "Mansion"));
-            DB.Musics.Add(new Music("Sylvio", EGenre.Jazz, "Hello"));
-            DB.Musics.Add(new Music("Truc", EGenre.Pop, "Hi"));
-            DB.Musics.Add(new Music("Hehehe", EGenre.Rap, "afnf"));
-            DB.Musics.Add(new Music("zefzes", EGenre.Rock, "jzoebgj"));
-            DB.Musics.Add(new Music("dtnbipa", EGenre.Jazz, "hioaf"));
-            DB.Musics.Add(new Music("sqnfoi", EGenre.Pop, "sqonf"));
+            DB.Musics.Add(new Music("Bidule", EGenre.Rap, "Artist", 100));
+            DB.Musics.Add(new Music("Thomas", EGenre.Rock, "Mansion", 300));
+            DB.Musics.Add(new Music("Sylvio", EGenre.Jazz, "Hello", 200));
+            DB.Musics.Add(new Music("Truc", EGenre.Pop, "Hi", 9999));
+            DB.Musics.Add(new Music("Hehehe", EGenre.Rap, "afnf", 1));
+            DB.Musics.Add(new Music("zefzes", EGenre.Rock, "jzoebgj", 1002));
+            DB.Musics.Add(new Music("dtnbipa", EGenre.Jazz, "hioaf",100000));
+            DB.Musics.Add(new Music("sqnfoi", EGenre.Pop, "sqonf", 97878976));
 
             /*
             List<Music> DBFiltered = DB.FilterGenre(EGenre.Jazz);
@@ -49,6 +49,7 @@ namespace Projet
             }
             */
 
+            /*
             Console.WriteLine("-----------------------------------");
             Console.WriteLine("Veuillez entrer un filtre pour les titres");
             Console.WriteLine("-----------------------------------");
@@ -62,13 +63,24 @@ namespace Projet
                 Console.WriteLine("Une erreur a eu lieu");
                 return;
             }
+
             
             List<Music> DBFilteredTitles = DB.FilterTitle(filter);
-            for (int musicIndex = 0; musicIndex < DBFiltered.Count; musicIndex++)
+            for (int musicIndex = 0; musicIndex < DBFilteredTitles.Count; musicIndex++)
             {
                 Music currentMusic = DBFilteredTitles[musicIndex];
                 Console.WriteLine("Titre: " + currentMusic.Title + " Genre: " + currentMusic.Genre + " Artiste: " + currentMusic.Artist);
             }
+            */
+
+            List<Music> DBFilteredViews = DB.FilterMoreViews();
+            for (int musicIndex = 0; musicIndex < DBFilteredViews.Count; musicIndex++)
+            {
+                Music currentMusic = DBFilteredViews[musicIndex];
+                Console.WriteLine("Titre: " + currentMusic.Title + " Genre: " + currentMusic.Genre + " Artiste: " + currentMusic.Artist + " Nombre de vues: " + currentMusic.Views);
+            }
+
+
         }
     }
 }
