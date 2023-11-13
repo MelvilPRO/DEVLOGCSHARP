@@ -6,7 +6,7 @@ namespace Projet
     {
         static void Main(string[] args)
         {
-            
+            Spatify.SeparateTP();
         }
     }
 }
