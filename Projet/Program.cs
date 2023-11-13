@@ -6,7 +6,10 @@ namespace Projet
     {
         static void Main(string[] args)
         {
-            
+            Calendar calendar = new Calendar(2023, EMonths.November, 13, EDays.Monday);
+
+
+
         }
     }
 }
