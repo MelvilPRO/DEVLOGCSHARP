@@ -13,24 +13,117 @@ namespace Projet
         public int DayNumber { get; set; }
         public EDays Day { get; set; }
 
-        public Calendar(int Year, EMonths Month, int DayNumber, EDays Day)
+        private bool passingNextWeek;
+        private bool passingNextMonth;
+        private bool passingNextYear;
+
+        public Calendar(int year, EMonths month, int dayNumber, EDays day)
         {
-            this.Year = Year;
-            this.Month = Month;
-            this.DayNumber = DayNumber;
-            this.Day = Day;
+            Year = year;
+            Month = month;
+            DayNumber = dayNumber;
+            Day = day;
+
+            passingNextWeek = false;
+            passingNextMonth = false;
+            passingNextYear = false;
         }
 
-        public delegate void NewDay();
-        public event NewDay OnNewDay;
+        public delegate void NewDayDelegate();
+        public event NewDayDelegate OnNextDaySubscribers;
+        public void NextDay()
+        {
+            if (OnNextDaySubscribers == null)
+            {
+                OnNextDaySubscribers += OnNextDay;
+                OnNextDaySubscribers += OnNextWeek;
+                OnNextDaySubscribers += OnNextMonth;
+                OnNextDaySubscribers += OnNextYear;
+                OnNextDaySubscribers += OnNextDayApplied;
+                OnNextDaySubscribers += OnNextDayEnd;
+            }
 
-        public delegate void NewWeek();
-        public event NewWeek OnNewWeek;
+            OnNextDaySubscribers();
+        }
 
-        public delegate void NewMonth();
-        public event NewMonth OnNewMonth;
+        public void OnNextDay()
+        {
+            
+        }
 
-        public delegate void NewYear();
-        public event NewYear OnNewYear;
+        public void OnNextWeek()
+        {
+            if (Day == EDays.Sunday)
+                passingNextWeek = true;
+        }
+
+        public void OnNextMonth()
+        {
+            if (DayNumber == 30)
+                passingNextMonth = true;
+        }
+
+        public void OnNextYear()
+        {
+            if (passingNextMonth && Month == EMonths.December)
+                passingNextYear = true;
+        }
+
+        public void OnNextDayApplied()
+        {
+            if (DayNumber < 30)
+            {
+                DayNumber++;
+            }
+
+            if (passingNextWeek)
+                Day = EDays.Monday;
+            else
+            {
+                Day++;
+            }
+
+            if (passingNextMonth)
+            {
+                if (Month == EMonths.December)
+                    Month = EMonths.January;
+                else
+                    Month++;
+
+                DayNumber = 0;
+            }
+               
+            if (passingNextYear)
+            {
+                Year++;
+            }
+        }
+
+        public void OnNextDayEnd()
+        {
+            string consoleMessage = "We are passing a new day!";
+
+            if (passingNextWeek)
+            {
+                consoleMessage += " We are also passing a new week!";
+            }
+
+            if (passingNextMonth)
+            {
+                consoleMessage += " We are also passing a new month!";
+            }
+
+            if (passingNextYear)
+            {
+                consoleMessage += " We are also passing a new year!";
+            }
+
+            passingNextWeek = false;
+            passingNextMonth = false;
+            passingNextYear = false;
+
+            Console.WriteLine(consoleMessage);
+            Console.WriteLine("Here is the current date: " + DayNumber + "/" + Month + "/" + Year);
+        }
     }
 }
