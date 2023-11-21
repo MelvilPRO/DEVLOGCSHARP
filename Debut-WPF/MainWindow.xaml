@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Debut_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Background="Black">
     <Grid>
-        
+        <Button x:Name="Thomas" Content="Thomas" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.606,0.754" Height="118" Width="374" Click="ThomasShow_Click" Background="Lime" FontSize="30" FontWeight="Bold" FontStyle="Italic"/>
+        <Button x:Name="PlusButton" Content="+" HorizontalAlignment="Left" Margin="213,281,0,0" VerticalAlignment="Top" Height="60" Width="182" Click="PlusButton_Click" FontFamily="Arial Black" FontSize="40"/>
+        <Button x:Name="MineButton" Content="-" HorizontalAlignment="Left" Margin="400,281,0,0" VerticalAlignment="Top" Height="60" Width="187" FontSize="40" FontFamily="Arial Black" Click="MineButton_Click"/>
+        <Button x:Name="DisplayButton" Content="=" HorizontalAlignment="Center" Margin="0,346,0,0" VerticalAlignment="Top" Height="60" Width="374" FontSize="40" FontFamily="Arial Black" Click="Button_Click"/>
+
     </Grid>
 </Window>
