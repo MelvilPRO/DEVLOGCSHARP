@@ -8,9 +8,13 @@
         Title="MainWindow" Height="450" Width="800"
         Background="Black">
     <Grid>
-        <Button x:Name="PlusButton" Content="+" HorizontalAlignment="Left" Margin="213,152,0,0" VerticalAlignment="Top" Height="60" Width="182" Click="PlusButton_Click" FontFamily="Arial Black" FontSize="40"/>
-        <Button x:Name="MineButton" Content="-" HorizontalAlignment="Left" Margin="400,152,0,0" VerticalAlignment="Top" Height="60" Width="187" FontSize="40" FontFamily="Arial Black" Click="MineButton_Click"/>
-        <Button x:Name="DisplayButton" Content="=" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Height="60" Width="374" FontSize="40" FontFamily="Arial Black" Click="Button_Click"/>
+        <Button x:Name="PlusButton" Content="+" HorizontalAlignment="Left" Margin="217,0,0,0" VerticalAlignment="Center" Height="60" Width="89" Click="PlusButton_Click" FontFamily="Arial Black" FontSize="40"/>
+        <Button x:Name="MineButton" Content="-" HorizontalAlignment="Left" Margin="310,0,0,0" VerticalAlignment="Center" Height="60" Width="90" FontSize="40" FontFamily="Arial Black" Click="MineButton_Click"/>
+        <Label x:Name="LabelCount" Content="" HorizontalAlignment="Center" Margin="0,258,0,0" VerticalAlignment="Top" Width="374" Background="#FF9400FF" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button x:Name="MultButton" Content="*" HorizontalAlignment="Left" Margin="404,0,0,0" VerticalAlignment="Center" Height="60" Width="89" FontSize="40" FontFamily="Arial Black" Click="MultButton_Click"/>
+        <Button x:Name="DiviButton" Content="/" HorizontalAlignment="Left" Margin="497,0,0,0" VerticalAlignment="Center" Height="60" Width="90" FontSize="40" FontFamily="Arial Black" Click="DiviButton_Click"/>
+        <TextBox x:Name="UserEntry1" HorizontalAlignment="Left" Margin="217,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183" Height="33" Background="#FF00FFB3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="UserEntry2" HorizontalAlignment="Left" Margin="405,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183" Height="33" Background="#FF00D6FF" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>
