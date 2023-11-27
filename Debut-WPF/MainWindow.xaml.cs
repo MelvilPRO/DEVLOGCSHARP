@@ -20,9 +20,33 @@ namespace Debut_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Database StoredUsers { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            StoredUsers = new Database();
+        }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            string lastName = tboxLastName.Text;
+            string firstName = tboxFirstName.Text;
+            
+            MonthSubscriptions.eSubscriptions subscription = MonthSubscriptions.eSubscriptions.SingleYear;
+            if (rdbNetflux1Month.IsChecked == true)
+                subscription = MonthSubscriptions.eSubscriptions.SingleMonth;
+            if (rdbNetflux6Month.IsChecked == true)
+                subscription = MonthSubscriptions.eSubscriptions.SixMonths;
+            if (rdbNetflux1Year.IsChecked == true)
+                subscription = MonthSubscriptions.eSubscriptions.SingleYear;
+
+            bool newsletter = false;
+            if (chkbNewsletter.IsChecked == true)
+                newsletter = true;
+
+            User user = new User(lastName, firstName, subscription, newsletter);
+            StoredUsers.DB.Add(user);
         }
     }
 }

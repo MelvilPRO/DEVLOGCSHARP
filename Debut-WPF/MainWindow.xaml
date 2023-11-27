@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Debut_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="350" Width="800">
     <Grid>
-        
+        <Label x:Name="lblLastName" Content="Last Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="146"/>
+        <TextBox x:Name="tboxLastName" HorizontalAlignment="Left" Margin="10,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146" Height="18"/>
+        <Label x:Name="lblFirstName" Content="First Name" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="146"/>
+        <TextBox x:Name="tboxFirstName" HorizontalAlignment="Left" Margin="10,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146" Height="18"/>
+        <Label x:Name="lblNetfluxBeforeRadio" Content="Subscription to Netflux" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" Width="146"/>
+        <RadioButton x:Name="rdbNetflux1Month" Content="1 Month" HorizontalAlignment="Left" Margin="10,164,0,0" VerticalAlignment="Top" Height="21" Width="146"/>
+        <RadioButton x:Name="rdbNetflux6Month" Content="6 Month" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Height="21" Width="146"/>
+        <RadioButton x:Name="rdbNetflux1Year" Content="1 Year" HorizontalAlignment="Left" Margin="10,211,0,0" VerticalAlignment="Top" Height="21" Width="146"/>
+        <Label x:Name="lblNetfluxAfterRadio" Content="Subscription to Netflux" HorizontalAlignment="Left" Margin="10,233,0,0" VerticalAlignment="Top" Width="146"/>
+        <CheckBox x:Name="chkbNewsletter" Content="Newsletter" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top" Height="17" Width="146"/>
+        <Button x:Name="btnSubmit" Content="Submit" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="146" Background="#FF00FFBF" Click="btnSubmit_Click"/>
+        <Button x:Name="btnDisplayDB" Content="Submit" HorizontalAlignment="Left" Margin="644,281,0,0" VerticalAlignment="Top" Width="146" Background="#FFA0FF00"/>
+        <Image x:Name="imgDisplayed" HorizontalAlignment="Left" Height="310" Margin="156,10,0,0" VerticalAlignment="Top" Width="443" Source="/Elephant.jpg"/>
+
     </Grid>
 </Window>
