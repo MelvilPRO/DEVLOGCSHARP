@@ -28,15 +28,6 @@ namespace Debut_WPF
             ButtonCount = 0;
         }
 
-        private void ThomasShow_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Salut Thomas!", "Test", MessageBoxButton.OK, MessageBoxImage.Information);
-            if (Thomas.Background == System.Windows.Media.Brushes.Lime)
-                Thomas.Background = System.Windows.Media.Brushes.Red;
-            else
-                Thomas.Background = System.Windows.Media.Brushes.Lime;
-        }
-
         private void PlusButton_Click(object sender, RoutedEventArgs e)
         {
             ButtonCount++;
