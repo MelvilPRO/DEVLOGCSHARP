@@ -20,25 +20,31 @@ namespace Debut_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Database StoredUsers { get; set; }
+        public Database StoredUsersDB { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-            StoredUsers = new Database();
+            StoredUsersDB = new Database();
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             string lastName = tboxLastName.Text;
             string firstName = tboxFirstName.Text;
+
+            if (lastName == "" || firstName == "")
+            {
+                MessageBox.Show("Le prénom ou nom de famille ne peut être vide!");
+                return;
+            }
             
             MonthSubscriptions.eSubscriptions subscription = MonthSubscriptions.eSubscriptions.SingleYear;
             if (rdbNetflux1Month.IsChecked == true)
                 subscription = MonthSubscriptions.eSubscriptions.SingleMonth;
-            if (rdbNetflux6Month.IsChecked == true)
+            else if (rdbNetflux6Month.IsChecked == true)
                 subscription = MonthSubscriptions.eSubscriptions.SixMonths;
-            if (rdbNetflux1Year.IsChecked == true)
+            else if (rdbNetflux1Year.IsChecked == true)
                 subscription = MonthSubscriptions.eSubscriptions.SingleYear;
 
             bool newsletter = false;
@@ -46,7 +52,13 @@ namespace Debut_WPF
                 newsletter = true;
 
             User user = new User(lastName, firstName, subscription, newsletter);
-            StoredUsers.DB.Add(user);
+            StoredUsersDB.DB.Add(user);
+        }
+
+        private void btnDisplayDB_Click(object sender, RoutedEventArgs e)
+        {
+            string displayedText = StoredUsersDB.GetStringRepresentation();
+            lblDisplayedDB.Content = displayedText;
         }
     }
 }
