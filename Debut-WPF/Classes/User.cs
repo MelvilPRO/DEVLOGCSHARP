@@ -24,7 +24,7 @@ namespace Debut_WPF
         public string GetStringRepresentation()
         {
             string result = LastName + " " + FirstName + "\n";
-            result += MonthSubscriptions.SubscriptionAsString(Subscription) + "\n";
+            result = MonthSubscriptions.SubscriptionAsString(Subscription) + "\n";
 
             if (Newsletter)
                 result += "Inscrit à la Newsletter\n";
