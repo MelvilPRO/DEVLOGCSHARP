@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid x:Name="GridButtonsHolder" Grid.Column="2" ShowGridLines="True">
+            <Button x:Name="BTNPop" Content="Pop" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="44" Width="228" Click="BTNPop_Click"/>
+            <Button x:Name="BTNRap" Content="Rap" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="44" Width="228" Click="BTNRap_Click"/>
+            <Button x:Name="BTNRock" Content="Rock" HorizontalAlignment="Left" Margin="562,10,0,0" VerticalAlignment="Top" Height="44" Width="228" Click="BTNRock_Click"/>
+        </Grid>
+        <TextBlock x:Name="TBlockDisplayedDB" HorizontalAlignment="Center" Margin="0,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="354" Width="780"/>
     </Grid>
 </Window>

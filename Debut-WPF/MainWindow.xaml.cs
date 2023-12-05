@@ -20,9 +20,36 @@ namespace Debut_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Database DB {  get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            DB = new Database();
+            DB.InsertFakeMusics();
+        }
+
+        private void DisplayGivenDB(Database database)
+        {
+            TBlockDisplayedDB.Text = database.ToString();
+        }
+
+        private void BTNPop_Click(object sender, RoutedEventArgs e)
+        {
+            Database filtered = new Database(DB.FilterGenre(EMusics.Pop));
+            DisplayGivenDB(filtered);   
+        }
+
+        private void BTNRap_Click(object sender, RoutedEventArgs e)
+        {
+            Database filtered = new Database(DB.FilterGenre(EMusics.Rap));
+            DisplayGivenDB(filtered);
+        }
+
+        private void BTNRock_Click(object sender, RoutedEventArgs e)
+        {
+            Database filtered = new Database(DB.FilterGenre(EMusics.Rock));
+            DisplayGivenDB(filtered);
         }
     }
 }
