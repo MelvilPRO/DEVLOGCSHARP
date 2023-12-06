@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid>
+            <TextBlock x:Name="Displayed1" HorizontalAlignment="Left" Margin="226,0,0,0" TextWrapping="Wrap" Text="{Binding Path=HPs.HP}" VerticalAlignment="Center"/>
+            <TextBlock x:Name="Displayed2" HorizontalAlignment="Left" Margin="336,0,0,0" TextWrapping="Wrap" Text="{Binding Path=HPs.HP}" VerticalAlignment="Center"/>
+            <Button x:Name="Taper1" Content="Taper" HorizontalAlignment="Left" Margin="216,244,0,0" VerticalAlignment="Top" Click="Taper1_Click"/>
+            <Button x:Name="Taper2" Content="Taper" HorizontalAlignment="Left" Margin="326,244,0,0" VerticalAlignment="Top" Click="Taper2_Click"/>
+        </Grid>
     </Grid>
 </Window>

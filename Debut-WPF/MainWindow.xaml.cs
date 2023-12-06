@@ -20,9 +20,23 @@ namespace Debut_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        HitPoints HPs {  get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            HPs = new HitPoints();
+
+            DataContext = this;
+        }
+
+        private void Taper1_Click(object sender, RoutedEventArgs e)
+        {
+            HPs.HP = "" + (int.Parse(HPs.HP) - 1);
+        }
+
+        private void Taper2_Click(object sender, RoutedEventArgs e)
+        {
+            HPs.HP = "" + (int.Parse(HPs.HP) + 1);
         }
     }
 }
