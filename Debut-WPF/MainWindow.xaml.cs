@@ -88,11 +88,11 @@ namespace Debut_WPF
                 int currentSuccessRate = int.Parse(splitLine[successRateIndex]);
                 int currentScore = int.Parse(splitLine[scoreIndex]);
 
-                if (currentSuccessRate == 0 || currentScore == 0)
-                    continue;
-
-                filteredSuccessRates.Add(currentSuccessRate);
-                filteredScores.Add(currentScore);
+                if (currentSuccessRate != 0 && currentScore != 0)
+                {
+                    filteredSuccessRates.Add(currentSuccessRate);
+                    filteredScores.Add(currentScore);
+                }
             }
 
             // Calcul des 2 moyennes
