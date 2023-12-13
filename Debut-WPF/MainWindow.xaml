@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Debut_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,0,0,209">
-        <TextBlock x:Name="Leaderboard" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Leaderboard" VerticalAlignment="Top" Height="40" Width="170" FontSize="30"/>
-        <TextBlock x:Name="DisplayedScores" HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="160" Width="170"/>
-        <TextBox x:Name="UserEntry" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="40" Margin="0,68,0,0"/>
-        <Button x:Name="UserAction" Content="Juste prix! (0-100)" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Height="40" Width="120" Click="UserAction_Click"/>
+        Title="MainWindow" Height="360" Width="380">
+    <Grid Background="#000000">
+        <TextBlock x:Name="Leaderboard" HorizontalAlignment="Left" Margin="100,10,0,0" TextWrapping="Wrap" Text="Leaderboard" VerticalAlignment="Top" Height="40" Width="170" FontSize="30" Foreground="White"/>
+        <TextBlock x:Name="DisplayedScores" HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="160" Width="345" Foreground="White"/>
+        <TextBox x:Name="UserNumberEntry" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="40" Margin="185,220,0,0"/>
+        <Button x:Name="UserNumberAction" Content="Juste prix! (0-100)" HorizontalAlignment="Left" Margin="185,265,0,0" VerticalAlignment="Top" Height="40" Width="170" Click="UserNumberAction_Click" Foreground="White" Background="Red"/>
+        <TextBox x:Name="UserNameEntry" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="40" Margin="10,220,0,0"/>
+        <Button x:Name="UserNameAction" Content="Changer le pseudo!" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Height="40" Width="170" Click="UserNameAction_Click" Foreground="White" Background="#FFFF8000"/>
 
     </Grid>
 </Window>

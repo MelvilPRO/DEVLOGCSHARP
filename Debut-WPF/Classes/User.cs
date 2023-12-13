@@ -8,12 +8,13 @@ namespace Debut_WPF
 {
     public class User
     {
-        string Name { get; set; }
-        int Score { get; set; }
-        public User(string nameInit, int scoreInit)
+        static public string NameDefault = "Inconnu";
+        public string Name { get; set; }
+        public int Score { get; set; }
+        public User(string name, int score)
         {
-            Name = nameInit;
-            Score = scoreInit;
+            Name = name;
+            Score = score;
         }
     }
 }

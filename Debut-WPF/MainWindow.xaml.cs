@@ -20,10 +20,13 @@ namespace Debut_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        static public int DisplayedUsersMax = 5;
         public int MinPrix { get; set; }
         public int MaxPrix { get; set; }
         public int CurPrix { get; set; }
         public int Tentatives { get; set; }
+        public User CurrentUser { get; set; }
+        public Database DB { get; set; }
 
         /*
          TP 2 :
@@ -45,18 +48,22 @@ namespace Debut_WPF
             Random random = new Random();
             CurPrix = random.Next(MinPrix, MaxPrix + 1);
             Tentatives = 0;
+            CurrentUser = new User(User.NameDefault, Tentatives);
+            DB = new Database();
+            DB.Deserialize();
+            DisplayDBOnScreen();
         }
 
-        private void UserAction_Click(object sender, RoutedEventArgs e)
+        private void UserNumberAction_Click(object sender, RoutedEventArgs e)
         {
             // Vérifications du champ en entrée
-            if (UserEntry.Text == "")
+            if (UserNumberEntry.Text == "")
             {
                 MessageBox.Show("Le champ d'entrée ne peut être vide!", "Juste-Prix", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!int.TryParse(UserEntry.Text, out int userNumber))
+            if (!int.TryParse(UserNumberEntry.Text, out int userNumber))
             {
                 MessageBox.Show("Le champ d'entrée est incorrect!", "Juste-Prix", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -86,15 +93,54 @@ namespace Debut_WPF
             }
             else
             {
-                MessageBox.Show("Le prix a été trouvé avec " + Tentatives + " Tentatives!", "Juste-Prix", MessageBoxButton.OK, MessageBoxImage.Information);
+                CurrentUser.Score = Tentatives;
+                DB.Users.Add(CurrentUser);
+                DB.Serialize();
+
+                DisplayDBOnScreen();
+                MessageBox.Show("Le prix a été trouvé par " + CurrentUser.Name + " avec " + CurrentUser.Score + " Tentatives!", "Juste-Prix", MessageBoxButton.OK, MessageBoxImage.Information);
                 ResetJustePrix();
             }
         }
+
+        private void UserNameAction_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserNameEntry.Text == "")
+            {
+                MessageBox.Show("Le pseudo entré ne peut être vide!", "Juste-Prix", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            
+            if (Tentatives != 0)
+            {
+                MessageBox.Show("Une partie avait déjà commencé, on redémarre la partie!", "Juste-Prix", MessageBoxButton.OK, MessageBoxImage.Warning);
+                ResetJustePrix();
+            }
+
+            CurrentUser.Name = UserNameEntry.Text;
+        }
+
         public void ResetJustePrix()
         {
             Random random = new Random();
             CurPrix = random.Next(MinPrix, MaxPrix + 1);
             Tentatives = 0;
+        }
+
+        /* Affiche les meilleurs scores de la DB */
+        public void DisplayDBOnScreen()
+        {
+            List<User> ASC = DB.FilterScores();
+
+            DisplayedScores.Text = "";
+            for (int userIndex = 0; userIndex < ASC.Count; userIndex++)
+            {
+                if (userIndex > DisplayedUsersMax)
+                    break;
+
+                User user = ASC[userIndex];
+                DisplayedScores.Text += user.Name + " " + user.Score + "\n\n";
+            }
         }
     }
 }
