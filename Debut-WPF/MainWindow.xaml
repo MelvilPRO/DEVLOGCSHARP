@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Debut_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="470" Width="820">
     <Grid>
-        
+        <TextBox x:Name="BoardGameGeekIdEntry" HorizontalAlignment="Center" Margin="0,361,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="780"/>
+        <Button x:Name="ReceiveFromBoardGameGeek" Content="Button" HorizontalAlignment="Center" Margin="0,384,0,0" VerticalAlignment="Top" Width="780" Height="40" Click="BoardGameGeek_Click"/>
+        <Image x:Name="DisplayedGameImage" HorizontalAlignment="Left" Height="345" Margin="10,10,0,0" VerticalAlignment="Top" Width="391" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.224"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <TextBlock x:Name="DisplayedGameDescription" HorizontalAlignment="Left" Margin="410,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="346" Width="390"/>
     </Grid>
 </Window>
